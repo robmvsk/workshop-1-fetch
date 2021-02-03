@@ -76,7 +76,7 @@ const formatPrice = (price) => {
 //en lugar de ponerlo en el body, lo vamos a poner dentro de un contenedor:
 //Pasos:
 //window
-const obtenDatosAPI = async function getDataAguacates(baseUrl) {
+const obtenDatoAPI = async function getDataAguacates(baseUrl) {
 
 // 1.- Conectarnos al servidor
     //.fetch(`${baseUrl}/api/avo`)
@@ -153,4 +153,4 @@ const obtenDatosAPI = async function getDataAguacates(baseUrl) {
     //)
     ;
 
-    obtenDatosAPI(baseUrl);
+    obtenDatoAPI(baseUrl);
