@@ -1,4 +1,7 @@
 {
+  "name": "workshop-1-fetch",
+  "version": "1.0.0",
+  "homepage": "https://robmvsk.github.io/workshop-1-fetch",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

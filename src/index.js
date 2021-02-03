@@ -75,17 +75,21 @@ const formatPrice = (price) => {
 
 //en lugar de ponerlo en el body, lo vamos a poner dentro de un contenedor:
 //Pasos:
-window
+//window
+const obtenDatosAPI = async function getDataAguacates(baseUrl) {
+
 // 1.- Conectarnos al servidor
-    .fetch(`${baseUrl}/api/avo`)
+    //.fetch(`${baseUrl}/api/avo`)
+    const response = await fetch(`${baseUrl}/api/avo`)
 // 2.- Proesar la respuesta, y convertirla en JSON
-    .then(respuesta => respuesta.json())
+    //.then(respuesta => respuesta.json())
+    const reponseJson = await response.json()
 // 3.- JSON --> Data --> Renderizar la infor del data al browser
-    .then((reponseJson) => {
-        console.log(reponseJson);
-        const todosLosItems = []
+    //.then((reponseJson) => {
+        //console.log(reponseJson);
+        const todosLosItems = [];
         reponseJson.data.forEach(item => {
-            console.log(item.name);
+            //console.log(item.name);
             //crear la imagen
             const image = document.createElement('img')
             //tomando en cuenta que la ruta de la imagen es relativa y no abosulta, se procede a:
@@ -116,7 +120,7 @@ window
 
             //contenedor de la imagen y de titleAndPrice
             const cardUp = document.createElement('div')
-            cardUp.className = 'md:flex bg-white rounded-lg hover:bg-green-100';
+            cardUp.className = 'md:flex rounded-lg';
 
             cardUp.append(image, titleAndPrice)  //se cambia el contenedor titleAndPrice en lugar de: title, price
             
@@ -124,25 +128,29 @@ window
             //conociendo mas..
             const subTitle = document.createElement('h3')
             subTitle.textContent = 'Conociendo más:'
-            subTitle.className = 'text-base text-left md:text-left text-yellow-500 font-bold divide-x divide-y divide-green-500';
+            subTitle.className = 'text-base md:text-left text-yellow-500 font-bold';
 
             //description
             const description = document.createElement('div')
             description.textContent = item.attributes.description
-            description.className = 'text-right text-blue-400 md:text-right text-xs';
+            description.className = 'text-xs md:text-right text-blue-500';
 
             //contenedor de subtitle y description
             const cardDown = document.createElement('div')
-            cardDown.className = "bg-white rounded-lg hover:bg-green-100 md:divide-y-8 md:divide-x-0";
+            cardDown.className = "rounded-lg md:divide-y-8 divide-purple-200 md:divide-x-0";
             cardDown.append(subTitle, description)
 
             //contenedor Global: de cardUp y cardDown
             const card = document.createElement('div')
-            card.className = "md:flex-wrap bg-white rounded-lg p-6 hover:bg-green-100 border-solid border-2 border-purple-400";
+            card.className = "group hover:shadow-lg hover:border-transparent md:flex-wrap bg-yellow-50 rounded-lg p-6 hover:bg-yellow-100 border-solid border-2 border-green-200";
 
             card.append(cardUp, cardDown)  //se cambia el contenedor titleAndPrice en lugar de: title, price
             todosLosItems.push(card)
         });
 
         appNode.append(...todosLosItems)
-    });
+    }
+    //)
+    ;
+
+    obtenDatosAPI(baseUrl);
