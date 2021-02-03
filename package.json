@@ -1,7 +1,9 @@
 {
   "name": "workshop-1-fetch",
   "version": "1.0.0",
-  "homepage": "https://robmvsk.github.io/workshop-1-fetch",
+  "description": "curso Manipulación del DOM - workshop 1 fetch",
+  "main": "src/index.js",
+  "homepage": "https://robmvsk.github.io/workshop-1-fetch/index.html",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
