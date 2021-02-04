@@ -55,6 +55,16 @@ window
 const baseUrl = "https://platzi-avo.vercel.app";
 const appNode = document.querySelector('#app');
 
+//Mediante el uso del patrón de Event Delegation, vamos a propagar el evento click
+//en todos los elementos para que cuando demos click aparezca un alert que diga hola..
+appNode.addEventListener("click", (evento) => { 
+    //tiene la limitante que en cualquier parte del elemento que des click saldra el mensje Hola
+    //se puede limitar a un determinado tipo de elemento o a un determinado grupo de clases especificas
+    if( evento.target.nodeName === "H2") {
+        window.alert("Hola") 
+    }
+});
+
 //web API llamada Intl (Internacionalizacion), que sirve para dar:
 // 1.- formato de fechas  window.Intl.DateTimeFormat
 // 2.- formato a monedas  window.Intl.NumberFormat 
@@ -106,6 +116,9 @@ const obtenDatoAPI = async function getDataAguacates(baseUrl) {
             //title.className = 'muy-grande';
             //usandos las clases de tailwindcss:
             title.className = 'text-xl text-red-600';
+            //Delegacion de Eventos (event delegation)
+            //No es nada Performance: title.addEventListener("click", () => { window.alert("Hola") });
+
 
             //crear el precio
             const price = document.createElement('div')
